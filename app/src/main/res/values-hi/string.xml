@@ -2,19 +2,19 @@
 
     <resources>
 
-    <string name="app_name">Android Labs</string>
+    <string name="app_name">Android लैब्स</string>
 
-    <string name="hello_message">Hello World!!</string>
+    <string name="hello_message">नमस्ते दुनिया!</string>
 
-    <string name="ButtonText">I\’m a button</string>
+    <string name="ButtonText">मैं एक बटन हूं</string>
 
-    <string name="TextView">Look at my GUI</string>
+    <string name="TextView">मेरे जीयूआई को देखो</string>
 
-    <string name="Button2Text">CLICK HERE</string>
+    <string name="Button2Text">यहाँ क्लिक करें</string>
 
-    <string name="CheckBox">Check this out!</string>
+    <string name="CheckBox">इसकी जांच करें!</string>
 
-    <string name="Switch">Switch on / off</string>
+    <string name="Switch">चालू करना / बंद करना</string>
 
     <string name="hint">Type here</string>
 

@@ -4,43 +4,36 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TextView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/TextView"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:text="@string/TextView3" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/editText"
-        android:textSize="30dp"/>
+        android:hint="@string/editTexthint"
+        android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/TextView2"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:text="@string/TextView4" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"
-
-        android:textSize="30dp"/>
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ButtonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button"
-        android:textSize="30dp"/>
+        android:onClick="buttonClickActivity"
+        android:text="@string/ButtonLogin" />
 </LinearLayout>

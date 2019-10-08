@@ -1,5 +1,7 @@
 package com.example.lab_3;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,72 +11,88 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidlabs.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    EditText enterEmail;
-    public static final String Activity_name = "PROFILEACTIVITY";
-    private static final int pio_id = 123;
-    ImageButton cameraButton;
-    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    EditText emailText;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    ImageButton mImageButton;
+    String emailReceived;
+    public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(Activity_name, "onCreate:onCreate function has started");
-        setContentView(R.layout.activity_profile);
-        cameraButton = (ImageButton) findViewById(R.id.imageButton);
-        enterEmail = (EditText) findViewById(R.id.editText4);
-        Intent intent = getIntent();
-        enterEmail.setText(intent.getStringExtra("email"));
+        setContentView(R.layout.profile_activity);
+        Log.e(ACTIVITY_NAME, "In function: onCreate()");
 
-        cameraButton();
+        receiveEmailAddress();
+        mImageButton = (ImageButton) findViewById(R.id.imageButton2);
+
     }
 
-    public void cameraButton() {
-        Log.d(Activity_name, "cameraButton:Camera Button has Started");
-        cameraButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(cameraIntent, pio_id);
-                }
-            }
-        });
+    public void receiveEmailAddress(){
+        emailReceived = getIntent().getStringExtra("emailSent");
+        Log.d("Retrieved email: ",emailReceived);
+        emailText = (EditText) findViewById(R.id.editText4);
+        emailText.setText(emailReceived);
+    }
+
+
+    public void dispatchTakePictureIntent(View args0) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d(Activity_name,"onActivityResult:onActivityResultl has started");
-        super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode==pio_id){
-            Bitmap photo=(Bitmap)data.getExtras().get("data");
-            cameraButton.setImageBitmap(photo);
+        Log.e(ACTIVITY_NAME, "In function: onActivityResult()");
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            //mImageButton.setheig
+            mImageButton.setImageBitmap(imageBitmap);
         }
     }
-    protected void onStart(){
+
+    @Override
+    protected void onStart() {
         super.onStart();
-        Log.d(Activity_name,"In function: onStart()");
+        Log.e(ACTIVITY_NAME, "In function:onStart()");
     }
 
-    protected void onResume(){
-        super.onResume();
-        Log.d(Activity_name,"In function: onResume()");
-    }
-
-    protected void onPause(){
-        super.onPause();
-        Log.d(Activity_name,"In function: onPause()");
-    }
-    protected void onStop(){
+    @Override
+    protected void onStop() {
         super.onStop();
-        Log.d(Activity_name,"In function: onStop()");
+        Log.e(ACTIVITY_NAME, "In function:onStop()");
     }
 
-    protected void onDestroy(){
+    @Override
+    protected void onDestroy() {
         super.onDestroy();
-        Log.d(Activity_name,"In function: onDestroy()");
+        Log.e(ACTIVITY_NAME, "In function:onDestroy()");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(ACTIVITY_NAME, "In function:onPause()");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.e(ACTIVITY_NAME, "In function:onResume()");
+    }
+
+    public void goToChat(View args0) {
+        Intent goToChatIntent = new Intent(ProfileActivity.this,ChatRoomActivity.class);
+        startActivity(goToChatIntent);
+    }
+
 
 
 

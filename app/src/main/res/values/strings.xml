@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">lab_3</string>
+    <string name="action_settings">Settings</string>
+    <string name="TextView">Type Your Email here</string>
+    <string name="editText">Type Your Email Here</string>
+    <string name="TextView2">Type Password:</string>
+    <string name="button">Click OK!!</string>
+    <string name="textView3">Your Profile:</string>
+    <string name="textView4">Your Name</string>
+    <string name="textView5">Your Email</string>
+    <string name="textView7">Your Picture</string>
+    <string name="textView6">Click the button above to take picture</string>
+    <string name="editText3">Enter your Name</string>
+    <string name="editText4">Enter your email</string>
+</resources>
